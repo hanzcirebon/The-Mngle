@@ -1,0 +1,114 @@
+:root {
+	--primaryTextColor: #fff;
+	--secondaryTextColor: #656d72;
+
+	--borderColor: #f1f1f1;
+	--lineColor: #d9d9d9;
+
+	/* --primaryBackgroundColor: #fff; */
+    --primaryBackgroundColor: #3b4f65;
+	--secondaryBackgroundColor: #fbfbfb;
+
+	--primaryIconColor: #74d8f1;
+	--secondaryIconColorHover: #4dbfdc;
+
+	--paddingItem: 0.5rem;
+
+	--itemBorderRadius: 0.5rem;
+    --textBorderRadius: 0.1rem;
+
+	--ff-sans: 'Poppins', sans-serif;
+
+	--fw-light: 200;
+	--fw-normal: 400;
+	--fw-semibold: 600;
+	--fw-bold: 700;
+
+	--fs-400: 1rem;
+	--fs-500: 1.25rem; /*subtitle*/
+	--fs-600: 1.5rem;
+	--fs-700: 2rem; /*title*/
+	--fs-900: 2.5rem;
+}
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	outline: none;
+	border: none;
+	text-decoration: none;
+	scroll-behavior: smooth;
+}
+
+
+
+html {
+    /* height: 100vh; */
+	font-family: var(--ff-sans);
+	font-weight: var(--fw-normal);
+	line-height: 1.7;
+	color: var(--primaryTextColor);
+	background-color: var(--primaryBackgroundColor);
+}
+
+body {
+	display: grid;
+    grid-template-rows: 1fr;
+}
+
+.section-title {
+	font-size: var(--fs-700);
+	font-weight: var(--fw-bold);
+}
+
+.main {
+    grid-area: main;
+}
+
+.home{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    height: 100vh;
+}
+
+.card{
+    display: flex;
+    padding: 1rem;
+    flex-direction: column;
+    background-color: var(--secondaryBackgroundColor);
+}
+
+.joinRoom{
+    display: flex;
+    gap: 0.5rem;
+}
+
+.codeRoom {
+    width: 75%;
+    border: 1px solid black;
+    padding: var(--paddingItem);
+    border-radius: var(--textBorderRadius);
+} 
+
+.enterRoom{
+	display: inline-block;
+	padding: var(--paddingItem);
+	background-color: var(--primaryIconColor);
+	border: 0.1rem solid black;
+	border-radius: var(--itemBorderRadius);
+    width: 25%;
+}
+
+.createRoom input[type="submit"] {
+    margin-top: 0.5rem;
+	display: inline-block;
+	padding: var(--paddingItem);
+	background-color: var(--primaryIconColor);
+	border: 0.1rem solid black;
+	border-radius: var(--itemBorderRadius);
+    width: 100%;
+}
