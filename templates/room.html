@@ -7,6 +7,16 @@
 </head>
 <body>
     <h1>Welcome to Room {{ room_code }}</h1>
-    <!-- Add room content here -->
+    <h2>Current Player: {{ current_player }}</h2>
+    <h2>Players in the room:</h2>
+    <ul id="players-list">
+        {% for player in players %}
+            <li>{{ player }}</li>
+        {% endfor %}
+    </ul>
+
+    <script>
+
+    </script>
 </body>
 </html>
