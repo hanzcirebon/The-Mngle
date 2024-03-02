@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Mingler</title>
+</head>
+<body>
+    <h1>Welcome to The Mingler</h1>
+    <form action="{{ url_for('room', room_code='') }}" method="GET">
+        <input type="text" name="room_code" placeholder="Enter 6-digit code">
+        <input type="submit" value="Join Room">
+    </form>
+    <form action="{{ url_for('create_room') }}" method="GET">
+        <input type="submit" value="Create New Room">
+    </form>
+</body>
+</html>
