@@ -1,6 +1,19 @@
 from flask import Flask, render_template, redirect, url_for, request, session
 import random
 import string
+import re
+import google.generativeai as genai
+
+
+gemini_api = "AIzaSyAICX1lE8ap5Ee_XnZfmLH1azaNKuzVrFQ"
+genai.configure(api_key=gemini_api)
+
+model = genai.GenerativeModel('gemini-1.0-pro')
+
+def generate_question():
+    chat = model.start_chat(history=[])
+    response = chat.send_message(f"give me an ice breaker question")
+    return re.sub(r"\*|\"", "", response.text)
 
 app = Flask(__name__)
 app.secret_key = 'your_secret_key_here'
@@ -49,6 +62,11 @@ def room(room_code):
         return render_template('room.html', room_code=room_code, players=players, current_player=current_player)
     else:
         return redirect(url_for('index'))
+
+@app.route('/generate_text')
+def generate_text():
+    text = generate_question()
+    return redirect(url_for('room.html', generative_text=text))
 
 if __name__ == '__main__':
     app.run(debug=True)
