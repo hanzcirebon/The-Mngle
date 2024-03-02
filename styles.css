@@ -17,6 +17,8 @@
 	--itemBorderRadius: 0.5rem;
     --textBorderRadius: 0.1rem;
 
+
+
 	--ff-sans: 'Poppins', sans-serif;
 
 	--fw-light: 200;
@@ -41,7 +43,10 @@
 	scroll-behavior: smooth;
 }
 
-
+a{
+    color: black;
+    font-size: var(--fs-400);
+}
 
 html {
     /* height: 100vh; */
@@ -75,11 +80,13 @@ body {
     height: 100vh;
 }
 
+/* Home */
 .card{
     display: flex;
     padding: 1rem;
     flex-direction: column;
     background-color: var(--secondaryBackgroundColor);
+    box-shadow: 0 4px 8px 0 rgba(10, 81, 51, 1);
 }
 
 .joinRoom{
@@ -103,7 +110,11 @@ body {
     width: 25%;
 }
 
-.createRoom input[type="submit"] {
+.enterRoom:hover{
+    color:white;
+}
+
+a.createRoom{
     margin-top: 0.5rem;
 	display: inline-block;
 	padding: var(--paddingItem);
@@ -111,4 +122,59 @@ body {
 	border: 0.1rem solid black;
 	border-radius: var(--itemBorderRadius);
     width: 100%;
+    font-size: var(--fs-400);
 }
+/* Home */
+
+/* Room */
+
+.room{
+    display: flex;
+    flex-direction: column;
+    /* grid-template:
+		'title' auto
+		'main' 2fr
+		'footer' auto / 1fr; */
+}
+
+.player{
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+    
+}
+
+.card-player{
+    background-color: #fff;
+    color: black;
+    padding: 7rem;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    
+}
+
+.card-player>p{
+    font-size: var(--fs-600)
+}
+
+.generate{
+    margin-top: 0.5rem;
+    color: var(--primaryTextColor);
+    text-align: center;
+}
+
+.generateBtn{
+    margin-top: 0.5rem;
+	display: inline-block;
+	padding: var(--paddingItem);
+	background-color: var(--primaryIconColor);
+	border: 0.1rem solid black;
+	border-radius: var(--itemBorderRadius);
+    font-size: var(--fs-400);
+    text-align: center;
+    width: auto;
+    margin: 1rem;
+}
+/* Room */
