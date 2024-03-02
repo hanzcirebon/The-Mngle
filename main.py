@@ -9,7 +9,11 @@ rooms = {}
 
 # Function to generate a random 6-digit code
 def generate_room_code():
-    return ''.join(random.choices(string.ascii_uppercase + string.digits, k=6))
+    while True:
+        room_code = ''.join(random.choices(string.ascii_uppercase + string.digits, k=6))
+        if room_code not in rooms:
+            rooms.add(room_code)
+            return room_code
 
 @app.route('/')
 def index():
