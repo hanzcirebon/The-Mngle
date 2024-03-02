@@ -13,6 +13,7 @@ model = genai.GenerativeModel('gemini-1.0-pro')
 def generate_question():
     chat = model.start_chat(history=[])
     response = chat.send_message(f"give me an ice breaker question")
+
     return re.sub(r"\*|\"", "", response.text)
 
 app = Flask(__name__)
@@ -63,10 +64,11 @@ def room(room_code):
     else:
         return redirect(url_for('index'))
 
-@app.route('/generate_text')
-def generate_text():
+
+@app.route('/generate_text', methods=['POST'])
+def generate_text_route():
     text = generate_question()
-    return redirect(url_for('room.html', generative_text=text))
+    return text
 
 if __name__ == '__main__':
     app.run(debug=True)
