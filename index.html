@@ -15,28 +15,37 @@
 	<body>
 		<main>
 			<section id="home" class="home">
-				<p class="section-title">The Mingler!</p>
+				<p class="section-title title">The Mingler!</p>
 
 				<div class="card">
-					<form action="/">
+					<form action="{{ url_for('join_room') }}" method="POST">
 						<div class="joinRoom">
+							<input 
+								type="text"
+								class="codeRoom"
+								id="codeRoom"
+								name="player_name"
+								placeholder="Enter your username"
+								required>
 							<input
 								type="text"
 								class="codeRoom"
 								id="codeRoom"
 								name="codeRoom"
-								placeholder="Game Pin"
-							/>
-							<a href="/" class="enterRoom">Enter</a>
-							<!-- <input class="enterRoom" type="submit" value="Enter" /> -->
+								placeholder="Enter 6-digit code"
+								required>
+							<input class="enterRoom" type="submit" value="Join Room">
 						</div>
+					</form>
+					or
+					<form action="{{ url_for('create_room') }}" method="POST">
 						<div class="createRoom">
-							<!-- <input
-								type="submit"
-								value="Create A Room"
-								onclick="createARoom()"
-							/> -->
-							<a href="room.html" class="createRoom">Create a Room</a>
+							<input
+								type="text"
+								name="player_name"
+								placeholder="Enter your username"
+								required>
+							<input type="submit" class="createRoom" value="Create New Room">
 						</div>
 					</form>
 				</div>
@@ -47,6 +56,29 @@
 			integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+"
 			crossorigin="anonymous"
 		></script> -->
-		<script src="index.js"></script>
+		<script>
+			// function insertName() {
+			// 	let codeRoom = document.querySelector(".codeRoom").value;
+			// 	if (codeRoom.trim() !== "") {
+			// 		let person = prompt("Please enter your name:");
+			// 		if (person == null || person == "") {
+			// 			// text = "User cancelled the prompt.";
+			// 			// Redirect to another page
+			// 			window.location.href = "index.html";
+			// 		} else {
+			// 			window.location.href = "room.html";
+			// 		}
+			// 	}
+			// }
+			document.getElementById('joinRoomForm').addEventListener('submit', function(event) {
+				event.preventDefault(); // Prevent the form from submitting the traditional way
+				var roomCode = this.room_code.value; // Get the room code from the input
+				if(roomCode) { // Check if the roomCode is not empty
+					window.location.href = '/room/' + roomCode; // Redirect the user to the correct URL
+				} else {
+					alert('Please enter a room code.'); // Simple validation feedback
+				}
+			});
+		</script>
 	</body>
 </html>
