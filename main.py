@@ -1,3 +1,4 @@
+
 from flask import Flask, render_template, redirect, url_for, request, session
 import random
 import string
@@ -6,9 +7,11 @@ import google.generativeai as genai
 
 
 gemini_api = "AIzaSyAICX1lE8ap5Ee_XnZfmLH1azaNKuzVrFQ"
+
 genai.configure(api_key=gemini_api)
 
 model = genai.GenerativeModel('gemini-1.0-pro')
+
 
 def generate_question():
     chat = model.start_chat(history=[])
@@ -20,18 +23,22 @@ app = Flask(__name__)
 app.secret_key = 'your_secret_key_here'
 
 # Dictionary to store rooms
+
 rooms = {}
 
 # Function to generate a random 6-digit code
 def generate_room_code():
+
     while True:
         room_code = ''.join(random.choices(string.ascii_uppercase + string.digits, k=6))
         if room_code not in rooms:
             return room_code
 
+
 @app.route('/')
 def index():
     return render_template('index.html')
+
 
 @app.route('/create_room', methods=['POST'])
 def create_room():
@@ -52,12 +59,13 @@ def join_room():
         rooms[room_code].append(player_name)
     else:
         rooms[room_code] = [player_name]
-    
+
     return redirect(url_for('room', room_code=room_code))
 
 @app.route('/room/<string:room_code>')
 def room(room_code):
     if room_code in rooms:
+
         players = rooms[room_code]
         current_player = session.get('player_name')
         return render_template('room.html', room_code=room_code, players=players, current_player=current_player)
