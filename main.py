@@ -37,7 +37,7 @@ def generate_room_code():
 
 @app.route('/')
 def index():
-    return render_template('index.html')
+    return render_template("index.html")
 
 
 @app.route('/create_room', methods=['POST'])
@@ -50,7 +50,7 @@ def create_room():
 
 @app.route('/join_room', methods=['POST'])
 def join_room():
-    room_code = request.form['room_code']
+    room_code = request.form['codeRoom']
     player_name = request.form['player_name']
 
     session['player_name'] = player_name
