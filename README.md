@@ -17,5 +17,5 @@ Despite our lack of prior hackathon experience, we managed to successfully compl
 ## What we learned
 During our time at Unihack, we delved into a variety of technologies and grappled with the challenges of working together as a team to integrate them. This hands-on experience not only broadened our understanding of different technologies but also highlighted the complexities of coordination in a team setting. The lessons learned and the problem-solving skills honed during Unihack will undoubtedly serve each of us well in our future projects. The collaborative nature of the experience has equipped us with valuable insights into effective teamwork and will undoubtedly contribute to our success in upcoming endeavours.
 
-## What's next for The Mngler
+## What's next for The Mngle
 The future of The Mngle project involves adding new features and improving the user interface to enhance user experience and promote engaging interactions. Plans also include developing a native mobile app to meet the increasing demand for mobile access, with a focus on addressing security concerns. Our goal is to enhance The Mngle's capabilities while prioritizing user data security and platform integrity. This strategic roadmap reflects our dedication to ongoing improvement, meeting user needs, and providing a secure and enjoyable experience for all Mngle users.
