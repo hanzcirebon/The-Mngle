@@ -6,7 +6,7 @@ import re
 import google.generativeai as genai
 
 
-gemini_api = "AIzaSyAICX1lE8ap5Ee_XnZfmLH1azaNKuzVrFQ"
+gemini_api = "#"
 
 genai.configure(api_key=gemini_api)
 
